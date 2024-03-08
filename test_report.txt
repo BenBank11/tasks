@@ -50,47 +50,93 @@ FAIL src/nested.test.ts
       at Object.<anonymous> (src/nested.test.ts:858:11)
 
 PASS src/components/StartAttempt.test.tsx
+PASS src/form-components/MultipleChoiceQuestion.test.tsx
 PASS src/components/TwoDice.test.tsx
-PASS src/bad-components/ChooseTeam.test.tsx
 PASS src/functions.test.ts
 PASS src/bad-components/DoubleHalf.test.tsx
+PASS src/bad-components/ChooseTeam.test.tsx
+PASS src/form-components/CheckAnswer.test.tsx
+FAIL src/form-components/EditMode.test.tsx
+  ● EditMode Component tests › There is one checkbox and no textboxes
+
+    expect(element).toHaveClass("form-switch")
+
+    Expected the element to have class:
+      form-switch
+    Received:
+
+       9 |         const switchButton = screen.getByRole("checkbox");
+      10 |         expect(switchButton).toBeInTheDocument();
+    > 11 |         expect(switchButton.parentElement).toHaveClass("form-switch");
+         |                                            ^
+      12 |         expect(screen.queryByRole("textbox")).not.toBeInTheDocument();
+      13 |     });
+      14 |     test("Initial text should be 'Your Name is a student'.", () => {
+
+      at Object.<anonymous> (src/form-components/EditMode.test.tsx:11:44)
+
 PASS src/components/ChangeType.test.tsx
 PASS src/components/CycleHoliday.test.tsx
-PASS src/components/Counter.test.tsx
+PASS src/form-components/GiveAttempts.test.tsx
+FAIL src/form-components/ChangeColor.test.tsx
+  ● ChangeColor Component tests › Switching the color switches the displayed color.
+
+    expect(element).toHaveStyle()
+
+    - Expected
+
+    - backgroundColor: red;
+
+      16 |         let coloredBox = screen.getByTestId("colored-box");
+      17 |         expect(coloredBox).toHaveTextContent(radios[0].value);
+    > 18 |         expect(coloredBox).toHaveStyle({ backgroundColor: radios[0].value });
+         |                            ^
+      19 |         // Switch to third
+      20 |         radios[2].click();
+      21 |         coloredBox = screen.getByTestId("colored-box");
+
+      at Object.<anonymous> (src/form-components/ChangeColor.test.tsx:18:28)
+
 PASS src/components/RevealAnswer.test.tsx
+PASS src/components/Counter.test.tsx
 PASS src/bad-components/ColoredBox.test.tsx
 PASS src/bad-components/ShoveBox.test.tsx
-PASS src/text.test.tsx
 PASS src/App.test.tsx
---------------------|---------|----------|---------|---------|-------------------
-File                | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
---------------------|---------|----------|---------|---------|-------------------
-All files           |   98.37 |    91.39 |   99.08 |   98.67 |                   
- src                |   97.67 |    91.54 |   98.55 |   98.08 |                   
-  App.tsx           |      50 |      100 |      50 |      50 | 50                
-  arrays.ts         |   98.55 |    93.54 |     100 |   98.43 | 40                
-  functions.ts      |     100 |      100 |     100 |     100 |                   
-  nested.ts         |   98.24 |     87.5 |     100 |     100 | 104,198,253       
-  objects.ts        |      96 |    83.33 |     100 |      96 | 50                
- src/bad-components |     100 |       50 |     100 |     100 |                   
-  ChooseTeam.tsx    |     100 |       50 |     100 |     100 | 18                
-  ColoredBox.tsx    |     100 |      100 |     100 |     100 |                   
-  DoubleHalf.tsx    |     100 |      100 |     100 |     100 |                   
-  ShoveBox.tsx      |     100 |      100 |     100 |     100 |                   
- src/components     |     100 |       95 |     100 |     100 |                   
-  ChangeType.tsx    |     100 |      100 |     100 |     100 |                   
-  Counter.tsx       |     100 |      100 |     100 |     100 |                   
-  CycleHoliday.tsx  |     100 |      100 |     100 |     100 |                   
-  RevealAnswer.tsx  |     100 |      100 |     100 |     100 |                   
-  StartAttempt.tsx  |     100 |       75 |     100 |     100 | 8                 
-  TwoDice.tsx       |     100 |      100 |     100 |     100 |                   
- src/interfaces     |       0 |        0 |       0 |       0 |                   
-  answer.ts         |       0 |        0 |       0 |       0 |                   
-  question.ts       |       0 |        0 |       0 |       0 |                   
---------------------|---------|----------|---------|---------|-------------------
+-----------------------------|---------|----------|---------|---------|-------------------
+File                         | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-----------------------------|---------|----------|---------|---------|-------------------
+All files                    |    98.9 |    91.42 |     100 |   99.21 |                   
+ src                         |   98.24 |    91.54 |     100 |   98.71 |                   
+  App.tsx                    |     100 |      100 |     100 |     100 |                   
+  arrays.ts                  |   98.55 |    93.54 |     100 |   98.43 | 40                
+  functions.ts               |     100 |      100 |     100 |     100 |                   
+  nested.ts                  |   98.24 |     87.5 |     100 |     100 | 104,198,253       
+  objects.ts                 |      96 |    83.33 |     100 |      96 | 50                
+ src/bad-components          |     100 |       50 |     100 |     100 |                   
+  ChooseTeam.tsx             |     100 |       50 |     100 |     100 | 18                
+  ColoredBox.tsx             |     100 |      100 |     100 |     100 |                   
+  DoubleHalf.tsx             |     100 |      100 |     100 |     100 |                   
+  ShoveBox.tsx               |     100 |      100 |     100 |     100 |                   
+ src/components              |     100 |       95 |     100 |     100 |                   
+  ChangeType.tsx             |     100 |      100 |     100 |     100 |                   
+  Counter.tsx                |     100 |      100 |     100 |     100 |                   
+  CycleHoliday.tsx           |     100 |      100 |     100 |     100 |                   
+  RevealAnswer.tsx           |     100 |      100 |     100 |     100 |                   
+  StartAttempt.tsx           |     100 |       75 |     100 |     100 | 8                 
+  TwoDice.tsx                |     100 |      100 |     100 |     100 |                   
+ src/form-components         |     100 |    91.66 |     100 |     100 |                   
+  ChangeColor.tsx            |     100 |      100 |     100 |     100 |                   
+  CheckAnswer.tsx            |     100 |      100 |     100 |     100 |                   
+  EditMode.tsx               |     100 |      100 |     100 |     100 |                   
+  GiveAttempts.tsx           |     100 |       75 |     100 |     100 | 19                
+  MultipleChoiceQuestion.tsx |     100 |      100 |     100 |     100 |                   
+ src/interfaces              |       0 |        0 |       0 |       0 |                   
+  answer.ts                  |       0 |        0 |       0 |       0 |                   
+  question.ts                |       0 |        0 |       0 |       0 |                   
+-----------------------------|---------|----------|---------|---------|-------------------
 
-Test Suites: 1 failed, 15 passed, 16 total
-Tests:       1 failed, 110 passed, 111 total
+Test Suites: 3 failed, 17 passed, 20 total
+Tests:       3 failed, 131 passed, 134 total
 Snapshots:   0 total
-Time:        6.705 s
+Time:        7.364 s
 Ran all test suites.
